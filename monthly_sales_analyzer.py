@@ -24,7 +24,15 @@ sales_data = [
 
 def total_sales_by_product(data, product_key):
     """Calculates the total sales of a specific product in 30 days."""
-    pass
+    
+    # data[0][product_key] + data[1][product_key] + data[2][product_key]
+
+    total_sales = 0
+
+    for i in range(len(data)):
+        total_sales = total_sales + data[i][product_key] 
+
+    return total_sales
 
 
 def average_daily_sales(data, product_key):
@@ -49,8 +57,14 @@ def top_product(data):
 
 
 # Function tests
-print("Total sales of product_a:", total_sales_by_product(sales_data, "product_a"))
+print("Total sales of product_a:", total_sales_by_product(data = sales_data, product_key = "product_b"))
 print("Average daily sales of product_b:", average_daily_sales(sales_data, "product_b"))
 print("Day with highest total sales:", best_selling_day(sales_data))
 print("Days when product_c exceeded 300 sales:", days_above_threshold(sales_data, "product_c", 300))
 print("Product with highest total sales:", top_product(sales_data))
+
+
+print(len(sales_data))
+
+
+print("Total sales of product_a:", total_sales_by_product(data = sales_data[0:3], product_key = "product_b"))
